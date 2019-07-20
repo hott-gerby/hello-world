@@ -49,14 +49,14 @@ except IndexError:
   last = -1
 
 
-#filenames = glob.glob("*.tex")
-filenames = ["document.tex"]
+filenames = glob.glob("*.tex")
+#filenames = ["document.tex"]
 
 # where we should start
 i = last + 1
 
 for filename in filenames:
-  with open(filename) as f:
+  with open(filename, 'rt', encoding='UTF8') as f:
     # do this line per line to deal with comments
     for line in f:
       matches = re.findall("\\\\label{([^}]+)}", line.split("%")[0])
